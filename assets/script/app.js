@@ -63,6 +63,7 @@ const getPokemons = async () => {
       throw new Error("Deu ruim");
     
     const { results: pokeApiResults } = await response.json();
+    // console.log(pokeApiResults);
     const types = await getPokemonsType(pokeApiResults);
     const ids = getPokemonsIds(pokeApiResults);
     const imgs = await getPokemonsImgs(ids);
@@ -131,6 +132,8 @@ const handleNextPokemonsRender = () => {
 }
 
 const handlePageLoaded = async () => {
+  // fetch("https://pokeapi.co/api/v2/pokemon/16").then(a => a.json()).then(b => console.log(b));
+  // fetch("https://pokeapi.co/api/v2/ability/51").then(a => a.json()).then(b => console.log(b));
   const pokemons = await getPokemons();
   renderPokemons(pokemons);
   handleNextPokemonsRender();
