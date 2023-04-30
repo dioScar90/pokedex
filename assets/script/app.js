@@ -40,7 +40,8 @@ const getPokemonsIds = pokeApiResults => pokeApiResults.map(({ url }) => {
 })
 
 const getPokemonsImgs = async ids => {
-  const fulfilled = await getOnlyFulfilled({ arr: ids, func: id => fetch(`./assets/img/${id}.png`, { mode: "no-cors" }) });
+  // const fulfilled = await getOnlyFulfilled({ arr: ids, func: id => fetch(`./assets/img/${id}.png`, { mode: "no-cors" }) });
+  const fulfilled = await getOnlyFulfilled({ arr: ids, func: id => fetch(`./assets/img/${id}.png`) });
   return fulfilled.map(resp => resp.value.url);
 }
 
