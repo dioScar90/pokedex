@@ -19,8 +19,6 @@ const getTypeColor = type => {
   }[type] || normal
 }
 
-const BaseUrl = `https://pokeapi.co/api/v2/pokemon?limit=15&offset=0`;
-
 const getOnlyFulfilled = async ({ arr, func }) => {
   const promises = arr.map(func);
   const responses = await Promise.allSettled(promises);
